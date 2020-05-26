@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <h1>Task Pad</h1>
+
+        <div class="content">
+
+            <form id="add-task-form">
+                <input type="text" name="task" placeholder="Task Title">
+                <input type="datetime-local" name="deadline" placeholder=" Task Deadline">
+                <button>Add Task</button>
+            </form>
+
+            <ul id="task-list"></ul>
+
+        </div>
+
+        <script>
+            
+            var config = {
+                apiKey: "AIzaSyDZuPjJhHmugQY-6kLrZ-F6NJ26Z3vCE4g",
+                authDomain: "task-list-d4dd3.firebaseapp.com",
+                databaseURL: "https://task-list-d4dd3.firebaseio.com",
+                projectId: "task-list-d4dd3",
+                storageBucket: "task-list-d4dd3.appspot.com",
+                messagingSenderId: "703233572908",
+                appId: "1:703233572908:web:6739d6c4c488dc86f85189",
+                measurementId: "G-PFH2MW6QV3"
+            };
+            firebase.initializeApp(config);
+            const db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true }); 
+        </script>
+        <script src="app.js"></script>
+    </body>
+</html>
