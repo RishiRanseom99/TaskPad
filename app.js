@@ -29,13 +29,19 @@ function renderTask(doc){
 
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    db.collection('tasks').add({
-        task: form.task.value,
-        deadline: form.deadline.value
-    });
-    form.task.value = '';
-    form.deadline.value = '';
+   e.preventDefault();
+    if(form.task.value=="" || form.deadline.value==""){
+        document.getElementById("alert").style.visibility = "visible";}
+    else{
+        document.getElementById("alert").style.visibility = "hidden";
+        db.collection('tasks').add({
+            task: form.task.value,
+            deadline: form.deadline.value
+        });
+        form.task.value = '';
+        form.deadline.value = '';
+    
+    }
 });
 
 
